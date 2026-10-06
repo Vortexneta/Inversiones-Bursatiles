@@ -1,3 +1,19 @@
+const themeSwitch = document.querySelector('.theme-switch');
+const themeIcon = document.querySelector('.theme-icon');
+const savedTheme = localStorage.getItem('theme');
+
+function setTheme(isDark) {
+  document.body.dataset.theme = isDark ? 'dark' : 'light';
+  themeSwitch.setAttribute('aria-checked', String(isDark));
+  themeIcon.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+setTheme(savedTheme === 'dark');
+themeSwitch.addEventListener('click', () => {
+  setTheme(document.body.dataset.theme !== 'dark');
+});
+
 const copyEmailLinks = document.querySelectorAll('.copy-email');
 const copyNotice = document.querySelector('.copy-notice');
 let noticeTimeout;

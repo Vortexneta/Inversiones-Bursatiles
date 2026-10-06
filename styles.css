@@ -21,16 +21,29 @@ html {
   --text-dark: #17351D;
   --text-gray: #53645A;
   --white: #FFFFFF;
+  --surface: #FFFFFF;
   --border-color: #BFE5A7;
   
   --font-main: 'Montserrat', sans-serif;
+}
+
+body[data-theme="dark"] {
+  --green-dark: #A8DDAA;
+  --green-main: #82C98A;
+  --green-bright: #A6D975;
+  --green-bg-light: #1D3022;
+  --bg-gradient: linear-gradient(180deg, #1D3022 0%, #141B16 100%);
+  --text-dark: #E6EEE7;
+  --text-gray: #B7C5B9;
+  --surface: #1B251D;
+  --border-color: #3C5941;
 }
 
 body {
   font-family: var(--font-main);
   color: var(--text-dark);
   line-height: 1.6;
-  background-color: var(--white);
+  background-color: var(--surface);
 }
 
 .container {
@@ -126,7 +139,7 @@ body {
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.96);
+  background-color: var(--surface);
   backdrop-filter: blur(5px);
   z-index: 100;
 }
@@ -194,6 +207,56 @@ body {
   color: var(--white);
 }
 
+.theme-control {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.theme-switch {
+  position: relative;
+  width: 48px;
+  height: 27px;
+  flex: 0 0 48px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--green-bg-light);
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-switch:focus-visible {
+  outline: 3px solid var(--green-bright);
+  outline-offset: 3px;
+}
+
+.theme-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--green-dark);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+body[data-theme="dark"] .theme-switch {
+  background: #315C38;
+  border-color: #56835D;
+}
+
+body[data-theme="dark"] .theme-switch-thumb {
+  background: #FFFFFF;
+  transform: translateX(21px);
+}
+
 /* --- HERO --- */
 .hero {
   padding: 70px 0;
@@ -256,7 +319,7 @@ body {
 
 /* Tarjeta de contacto lateral en el Hero */
 .contact-card {
-  background: var(--white);
+  background: var(--surface);
   padding: 28px 24px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -342,7 +405,7 @@ body {
   padding: 30px;
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  background: var(--white);
+  background: var(--surface);
   transition: transform 0.3s ease;
 }
 
@@ -505,7 +568,7 @@ body {
 }
 
 .contact-button {
-  background-color: var(--white);
+  background-color: var(--surface);
   color: var(--green-dark);
   padding: 15px 25px;
   border-radius: 8px;
@@ -536,6 +599,30 @@ body {
   color: #A0AEC0;
   font-size: 0.9rem;
   text-align: center;
+}
+
+body[data-theme="dark"] .navbar {
+  background-color: rgba(20, 32, 23, 0.96);
+}
+
+body[data-theme="dark"] .quote-box {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+body[data-theme="dark"] .btn-primary {
+  background-color: #236B35;
+}
+
+body[data-theme="dark"] .btn-primary:hover {
+  background-color: #2F8544;
+}
+
+body[data-theme="dark"] .cta {
+  background-color: #123D20;
+}
+
+body[data-theme="dark"] .footer {
+  background-color: #101A13;
 }
 
 /* --- RESPONSIVE --- */

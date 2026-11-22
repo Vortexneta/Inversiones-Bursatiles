@@ -17,7 +17,7 @@
   <!-- Navegación -->
   <header class="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">
+      <a href="#" class="logo" data-home-control aria-label="Volver a elegir un curso">
         <img src="imagenes/logo.png" width="100" alt="Logo de Paola Lorca">
         <span class="logo-text">
           <span class="logo-name">Paola Lorca</span>
@@ -26,10 +26,10 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#temario">Temario</a></li>
-          <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+          <li><a href="#beneficios" data-nav="beneficios">Beneficios</a></li>
+          <li><a href="#sobre-mi" data-nav="sobre-mi">Sobre mí</a></li>
+          <li><a href="#temario" data-nav="temario">Temario</a></li>
+          <li><a href="#contacto" data-nav="contacto" class="btn-primary">Contacto</a></li>
         </ul>
       </nav>
       <div class="theme-control">
@@ -41,6 +41,35 @@
     </div>
   </header>
 
+  <!-- Selector de cursos -->
+  <div class="course-selector" aria-label="Seleccionar curso">
+    <div class="container course-selector-container">
+      <div class="course-selector-heading">
+        <span class="course-selector-eyebrow">Educación Financiera</span>
+        <h1>¿Qué curso estás buscando?</h1>
+        <p>Elegí el recorrido que mejor se adapta a tu perfil.</p>
+      </div>
+      <button class="course-tab active" type="button" data-course="contadores" aria-selected="true">
+        <span class="course-tab-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+        <span class="course-tab-copy">
+          <strong>Inversiones para contadores</strong>
+          <small>Aprende a integrar inversiones, finanzas e impuestos en tu práctica profesional.</small>
+        </span>
+        <i class="fa-solid fa-arrow-right course-tab-arrow" aria-hidden="true"></i>
+      </button>
+      <button class="course-tab" type="button" data-course="desde-cero" aria-selected="false">
+        <span class="course-tab-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+        <span class="course-tab-copy">
+          <strong>Inversiones desde 0</strong>
+          <small>Conoce los fundamentos y da tus primeros pasos con confianza en el mercado.</small>
+        </span>
+        <i class="fa-solid fa-arrow-right course-tab-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <main>
+  <div class="course-panel" id="panel-contadores" data-panel="contadores" role="tabpanel" hidden>
   <!-- Hero / Portada -->
   <section class="hero">
     <div class="container hero-container">
@@ -192,6 +221,150 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- Interfaz: Inversiones desde 0 -->
+  <div class="course-panel" id="panel-desde-cero" data-panel="desde-cero" role="tabpanel" hidden>
+    <section class="hero beginner-hero">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <span class="badge">Curso desde cero</span>
+          <h1>Inversiones desde 0</h1>
+          <blockquote class="quote-box">
+            <p>“Aprender a invertir es construir confianza paso a paso.”</p>
+            <cite>— Próxima frase —</cite>
+          </blockquote>
+          <p class="hero-description">
+            Interfaz preparada para completar con la propuesta, los beneficios y el recorrido del curso para principiantes.
+          </p>
+          <div class="hero-buttons">
+            <a href="#beginner-temario" class="btn-primary btn-large">Ver Temario</a>
+            <a href="#beginner-contacto" class="btn-secondary btn-large">Consultar</a>
+          </div>
+        </div>
+
+        <div class="hero-card-info">
+          <div class="contact-card beginner-card">
+            <span class="beginner-placeholder-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span>
+            <h3>Contacto directo</h3>
+            <div class="contact-item">
+              <span class="c-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+              <a href="tel:1153397191">11-5339 7191</a>
+            </div>
+            <div class="contact-item">
+              <span class="c-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+              <a href="#" class="copy-email" data-email="inversionesparacontadores@gmail.com" aria-label="Copiar email inversionesparacontadores@gmail.com">inversionesparacontadores@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="c-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+              <a href="https://www.instagram.com/inversionesparacontadores/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section-padding">
+      <div class="container">
+        <h2 class="section-title">¿Qué vas a aprender?</h2>
+        <p class="section-subtitle">Espacio reservado para los principales beneficios del curso.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon">1</div>
+            <h3>Primer beneficio</h3>
+            <p>Contenido por definir.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">2</div>
+            <h3>Segundo beneficio</h3>
+            <p>Contenido por definir.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">3</div>
+            <h3>Tercer beneficio</h3>
+            <p>Contenido por definir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section-padding alt-bg">
+      <div class="container about-container">
+        <div class="about-image beginner-about-image">
+          <img src="imagenes/paola.png" alt="Paola Alejandra Lorca">
+        </div>
+        <div class="about-text">
+          <span class="sub-title">Sobre el curso</span>
+          <h2>Contenido principal por completar</h2>
+          <p class="lead">Una propuesta pensada para empezar desde la base</p>
+          <p>Texto editable que puede incluir objetivos, metodología, experiencia de la instructora y para quién está pensado el curso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="beginner-temario" class="syllabus section-padding">
+      <div class="container">
+        <h2 class="section-title">Programa del curso</h2>
+        <p class="section-subtitle">Módulos preparados para incorporar el temario definitivo.</p>
+        <div class="modules-grid">
+          <div class="module-card">
+            <span class="module-number">Módulo 1</span>
+            <h3>Título por definir</h3>
+            <ul>
+              <li>Contenido por definir.</li>
+              <li>Contenido por definir.</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <span class="module-number">Módulo 2</span>
+            <h3>Título por definir</h3>
+            <ul>
+              <li>Contenido por definir.</li>
+              <li>Contenido por definir.</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <span class="module-number">Módulo 3</span>
+            <h3>Título por definir</h3>
+            <ul>
+              <li>Contenido por definir.</li>
+              <li>Contenido por definir.</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <span class="module-number">Módulo 4</span>
+            <h3>Título por definir</h3>
+            <ul>
+              <li>Contenido por definir.</li>
+              <li>Contenido por definir.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beginner-contacto" class="cta section-padding">
+      <div class="container cta-container">
+        <h2>¿Querés conocer el curso de inversiones desde 0?</h2>
+        <p>Consultá disponibilidad, próximas fechas y modalidades.</p>
+        <div class="cta-contacts">
+          <a href="https://wa.me/5491153397191" target="_blank" class="contact-button">
+            <span class="btn-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+            <span>11-5339-7191</span>
+          </a>
+          <a href="#" class="contact-button copy-email" data-email="inversionesparacontadores@gmail.com" aria-label="Copiar email inversionesparacontadores@gmail.com">
+            <span class="btn-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span>inversionesparacontadores@gmail.com</span>
+          </a>
+          <a href="https://www.instagram.com/inversionesparacontadores/" target="_blank" rel="noopener noreferrer" class="contact-button">
+            <span class="btn-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

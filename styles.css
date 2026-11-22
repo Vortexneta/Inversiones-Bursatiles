@@ -158,6 +158,22 @@ body {
   gap: 12px;
 }
 
+.logo-back {
+  display: none;
+  flex: 0 0 auto;
+  color: var(--green-dark);
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+body.course-selected .logo-back {
+  display: inline-flex;
+}
+
+.logo:hover .logo-back {
+  transform: translateX(-3px);
+}
+
 .logo img {
   width: 100px;
   height: auto;

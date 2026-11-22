@@ -9,7 +9,7 @@ function setTheme(isDark) {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-setTheme(savedTheme === 'dark');
+setTheme(savedTheme !== 'light');
 themeSwitch.addEventListener('click', () => {
   setTheme(document.body.dataset.theme !== 'dark');
 });
@@ -66,6 +66,7 @@ const homeControl = document.querySelector('[data-home-control]');
 const navLinks = document.querySelector('.nav-links');
 
 function showCourse(courseName, updateHash = true) {
+  const wasCourseSelected = document.body.classList.contains('course-selected');
   document.body.classList.add('course-selected');
   courseSelector.classList.remove('course-choice', 'entering');
   navLinks.removeAttribute('aria-hidden');
@@ -116,7 +117,12 @@ function showCourse(courseName, updateHash = true) {
     : 'Curso de Inversiones para Contadores | Paola Lorca';
 
   if (updateHash) {
-    history.replaceState(null, '', courseName === 'desde-cero' ? '#desde-cero' : '#contadores');
+    const courseHash = courseName === 'desde-cero' ? '#desde-cero' : '#contadores';
+
+    if (window.location.hash !== courseHash) {
+      const updateHistory = wasCourseSelected ? 'replaceState' : 'pushState';
+      history[updateHistory]({ view: 'course', course: courseName }, '', courseHash);
+    }
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -139,7 +145,11 @@ function showCourseChoice(updateUrl = true) {
   });
 
   if (updateUrl) {
-    history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    history.replaceState(
+      { view: 'course-choice' },
+      '',
+      `${window.location.pathname}${window.location.search}`
+    );
   }
 
   document.title = 'Elegí tu curso | Paola Lorca';
@@ -175,7 +185,29 @@ const courseByHash = {
 const initialCourse = courseByHash[window.location.hash];
 
 if (initialCourse) {
+  const initialUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  history.replaceState(
+    { view: 'course-choice' },
+    '',
+    `${window.location.pathname}${window.location.search}`
+  );
+  history.pushState({ view: 'course', course: initialCourse }, '', initialUrl);
   showCourse(initialCourse, false);
 } else {
+  history.replaceState(
+    { view: 'course-choice' },
+    '',
+    `${window.location.pathname}${window.location.search}`
+  );
   showCourseChoice(false);
 }
+
+window.addEventListener('popstate', () => {
+  const courseName = courseByHash[window.location.hash];
+
+  if (courseName) {
+    showCourse(courseName, false);
+  } else {
+    showCourseChoice(false);
+  }
+});

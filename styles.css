@@ -208,9 +208,6 @@ body {
 }
 
 .course-selector {
-  position: sticky;
-  top: 85px;
-  z-index: 90;
   background: color-mix(in srgb, var(--surface) 96%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -231,8 +228,6 @@ body {
 }
 
 .course-selector.course-choice {
-  position: relative;
-  top: auto;
   min-height: calc(100vh - 85px);
   display: flex;
   align-items: center;
@@ -424,17 +419,17 @@ body:not(.course-selected) .footer {
 }
 
 .course-panel.entering {
-  animation: course-content-in 0.42s ease both;
+  animation: course-content-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .course-selector.course-choice.entering {
-  animation: course-choice-in 0.42s ease both;
+  animation: course-choice-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes course-content-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -445,27 +440,12 @@ body:not(.course-selected) .footer {
 @keyframes course-choice-in {
   from {
     opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
-}
-
-.beginner-placeholder-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--green-bg-light);
-  color: var(--green-main);
-  font-size: 2rem;
-}
-
-.beginner-card p {
-  color: var(--text-gray);
 }
 
 .theme-control {
@@ -888,10 +868,6 @@ body[data-theme="dark"] .footer {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 850px) {
-  .course-selector {
-    top: 85px;
-  }
-
   .course-selector.course-choice {
     min-height: calc(100vh - 85px);
   }
@@ -976,10 +952,6 @@ body[data-theme="dark"] .footer {
   .course-choice .course-tab {
     height: 138px;
     min-height: 138px;
-  }
-
-  .course-selector {
-    top: 70px;
   }
 
   .course-selector-container {

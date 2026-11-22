@@ -94,8 +94,8 @@ function showCourse(courseName, updateHash = true) {
   navLinks.querySelectorAll('[data-nav]').forEach((link) => {
     const navName = link.dataset.nav;
     const beginnerTargets = {
-      beneficios: '#panel-desde-cero',
-      'sobre-mi': '#panel-desde-cero',
+      beneficios: '#beginner-beneficios',
+      'sobre-mi': '#beginner-sobre-mi',
       temario: '#beginner-temario',
       contacto: '#beginner-contacto'
     };
@@ -162,6 +162,8 @@ homeControl.addEventListener('click', (event) => {
 const courseByHash = {
   '#desde-cero': 'desde-cero',
   '#panel-desde-cero': 'desde-cero',
+  '#beginner-beneficios': 'desde-cero',
+  '#beginner-sobre-mi': 'desde-cero',
   '#beginner-temario': 'desde-cero',
   '#beginner-contacto': 'desde-cero',
   '#contadores': 'contadores',
